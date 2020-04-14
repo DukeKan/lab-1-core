@@ -31,6 +31,10 @@ public class HelloWorldTest {
 
 		person = (UsualPerson) context.getBean("personAutoWireByType", Person.class);
 		assertEquals(expectedPerson, person);
+
+
+		person = (UsualPerson) context.getBean("personAutoWireByConstructor", Person.class);
+		assertEquals(expectedPerson, person);
 	}
 
 	private UsualPerson getExpectedPerson() {

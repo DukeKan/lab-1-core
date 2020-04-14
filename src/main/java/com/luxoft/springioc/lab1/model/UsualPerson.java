@@ -116,4 +116,8 @@ public class UsualPerson implements Person {
         this.country = country;
         this.age = age;
     }
+
+    @SuppressWarnings("unused")
+    public UsualPerson() {
+    }
 }

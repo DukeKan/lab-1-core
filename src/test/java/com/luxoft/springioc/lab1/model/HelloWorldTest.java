@@ -26,25 +26,25 @@ public class HelloWorldTest {
 
 	@Test
 	public void testInitPerson() {
-		UsualPerson person = (UsualPerson) context.getBean("person", Person.class);
+		UsualPerson person = (UsualPerson) context.getBean("personAutoWireByName", Person.class);
+		assertEquals(expectedPerson, person);
 
-		System.out.println("-->" + person.getCountry().getA());
-//		assertEquals(expectedPerson, person);
-//		System.out.println(person);
+		person = (UsualPerson) context.getBean("personAutoWireByType", Person.class);
+		assertEquals(expectedPerson, person);
+
+
+		person = (UsualPerson) context.getBean("personAutoWireByConstructor", Person.class);
+		assertEquals(expectedPerson, person);
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setName("John Smith");
 
 		Country country = new Country();
 		country.setId(1);
 		country.setName("Russia");
 		country.setCodeName("RU");
 
-		System.out.println("-->" + country.getA());
-
+		UsualPerson person = new UsualPerson("John Smith", country, 35);
 		person.setCountry(country);
 
 		return person;

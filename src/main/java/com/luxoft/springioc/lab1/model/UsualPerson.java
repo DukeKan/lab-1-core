@@ -110,4 +110,10 @@ public class UsualPerson implements Person {
         result = 31 * result + (country != null ? country.hashCode() : 0);
         return result;
     }
+
+    public UsualPerson(String name, Country country, int age) {
+        this.name = name;
+        this.country = country;
+        this.age = age;
+    }
 }

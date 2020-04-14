@@ -29,14 +29,11 @@ public class HelloWorldTest {
 		UsualPerson person = (UsualPerson) context.getBean("person", Person.class);
 
 		System.out.println("-->" + person.getCountry().getA());
-//		assertEquals(expectedPerson, person);
+		assertEquals(expectedPerson, person);
 //		System.out.println(person);
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setName("John Smith");
 
 		Country country = new Country();
 		country.setId(1);
@@ -45,6 +42,7 @@ public class HelloWorldTest {
 
 		System.out.println("-->" + country.getA());
 
+		UsualPerson person = new UsualPerson("John Smith", country, 35);
 		person.setCountry(country);
 
 		return person;
